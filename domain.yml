@@ -4,30 +4,65 @@ intents:
   - greet
   - goodbye
   - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
+  - inform_brand
+  - inform_style
+  - inform_fit
+  - inform_size
+
+entities:
+  - brand
+  - style
+  - fit
+  - size
+
+slots:
+  brand:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: brand
+  style:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: style
+  fit:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: fit
+  size:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: size
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
-
+    - text: "Hello! I'm here to help you find the perfect shirt by asking you four questions about a shirt you already own and fits you well. Let's start. What is the brand of your shirt?"
   utter_goodbye:
-  - text: "Bye"
+    - text: "Goodbye! Have a great day."
+  utter_ask_brand:
+    - text: "What is the brand of your shirt?"
+  utter_ask_style:
+    - text: "Great! What style is your shirt?"
+  utter_ask_fit:
+    - text: "Thanks. What is the fit of your shirt?"
+  utter_ask_size:
+    - text: "Great. Last one. What is your shirt size or collar size?"
 
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+actions:
+  - utter_greet
+  - utter_goodbye
+  - utter_ask_brand
+  - utter_ask_style
+  - utter_ask_fit
+  - utter_ask_size
+  - action_summarize_selections
 
 session_config:
   session_expiration_time: 60

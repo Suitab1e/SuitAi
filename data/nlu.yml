@@ -37,55 +37,32 @@ nlu:
     - indeed
     - of course
     - that sounds good
-    - correct
+    - corrects
 
-- intent: deny
+- intent: inform_brand
   examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
+    - Its [Emmett](brand)
+    - [Charles Tyrwhitt](brand)
+    - The brand is [M&S](brand)
+    - I'm wearing a [Next](brand) shirt
 
-- intent: mood_great
+- intent: inform_style
   examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
+    - It's a [casual](style) shirt
+    - [Formal](style) style
+    - The style is [linen](style)
+    - I like [formal](style) shirts
 
-- intent: mood_unhappy
+- intent: inform_fit
   examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
+    - It's a [slim](fit) fit
+    - [Regular](fit) fit
+    - The fit is [tailored](fit)
+    - I prefer a [athletic](fit) fit
 
-- intent: bot_challenge
+- intent: inform_size
   examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
+    - The collar size is [15 inches](size)
+    - Its a [M](size)
+    - Around [14.5 inches](size) in size
+    - I think it's [17 inches](size)

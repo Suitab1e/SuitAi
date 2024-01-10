@@ -2,29 +2,60 @@ version: "3.1"
 
 stories:
 
-- story: happy path
+- story: user asks for brand
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: mood_great
-  - action: utter_happy
+  - intent: inform_brand
+    entities:
+      - brand: "Emmett"
+  - action: utter_ask_style
 
-- story: sad path 1
+- story: user asks for style
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: affirm
-  - action: utter_happy
+  - intent: inform_style
+    entities:
+      - style: "casual"
+  - action: utter_ask_fit
 
-- story: sad path 2
+- story: user asks for fit
+  steps:
+  - intent: inform_fit
+    entities:
+      - fit: "slim"
+  - action: utter_ask_size
+
+- story: user asks for size
+  steps:
+  - intent: inform_size
+    entities:
+      - size: "15 inches"
+  - action: action_summarize_selections
+
+- story: full conversation
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: deny
+  - intent: inform_brand
+    entities:
+      - brand: "Charles Tyrwhitt"
+  - action: utter_ask_style
+  - intent: inform_style
+    entities:
+      - style: "formal"
+  - action: utter_ask_fit
+  - intent: inform_fit
+    entities:
+      - fit: "regular"
+  - action: utter_ask_size
+  - intent: inform_size
+    entities:
+      - size: "M"
+  - action: action_summarize_selections
+
+- story: user greets and says goodbye
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: goodbye
   - action: utter_goodbye

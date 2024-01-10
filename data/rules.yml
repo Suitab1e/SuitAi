@@ -2,12 +2,40 @@ version: "3.1"
 
 rules:
 
-- rule: Say goodbye anytime the user says goodbye
+- rule: Respond to greeting
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: Goodbye message
   steps:
   - intent: goodbye
   - action: utter_goodbye
 
-- rule: Say 'I am a bot' anytime the user challenges
+- rule: Brand provided by user
+  condition:
+  - active_loop: null
   steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
+  - intent: inform_brand
+  - action: utter_ask_style
+
+- rule: Style provided by user
+  condition:
+  - active_loop: null
+  steps:
+  - intent: inform_style
+  - action: utter_ask_fit
+
+- rule: Fit provided by user
+  condition:
+  - active_loop: null
+  steps:
+  - intent: inform_fit
+  - action: utter_ask_size
+
+- rule: Size provided by user
+  condition:
+  - active_loop: null
+  steps:
+  - intent: inform_size
+  - action: action_summarize_selections
